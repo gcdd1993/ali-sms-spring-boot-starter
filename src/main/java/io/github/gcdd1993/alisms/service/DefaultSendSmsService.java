@@ -11,8 +11,6 @@ import io.github.gcdd1993.alisms.autoconfigure.AliSmsProperties;
 import io.github.gcdd1993.alisms.domain.SmsRequest;
 import io.github.gcdd1993.alisms.domain.SmsResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -24,14 +22,12 @@ import java.util.concurrent.CompletableFuture;
  * @date 2019/6/6
  */
 @Slf4j
-@Service
 public class DefaultSendSmsService implements ISendSmsService {
 
     private final IAcsClient acsClient;
 
     private final AliSmsProperties properties;
 
-    @Autowired
     public DefaultSendSmsService(IAcsClient acsClient, AliSmsProperties properties) {
         this.acsClient = acsClient;
         this.properties = properties;
