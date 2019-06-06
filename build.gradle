@@ -11,6 +11,7 @@ plugins {
     id "io.freefair.lombok" version "3.6.6"
     id 'maven-publish'
     id "com.jfrog.bintray" version "1.7.3"
+    id "com.palantir.git-version" version "0.12.0-rc2"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -43,7 +44,7 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
             artifactId 'ali-sms-spring-boot-starter'
-            version '0.0.1-SNAPSHOT'
+            version gitVersion()
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
@@ -111,8 +112,8 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter.git'
         version {
-            name = '0.1.0'
-            desc = '0.1.0'
+            name = project.version
+            desc = project.version
             released  = new Date()
         }
     }
