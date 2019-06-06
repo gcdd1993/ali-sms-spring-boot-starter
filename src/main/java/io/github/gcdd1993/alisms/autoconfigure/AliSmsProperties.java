@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * TODO
+ * ali sms 属性装配定义
  *
  * @author gaochen
  * @date 2019/6/6

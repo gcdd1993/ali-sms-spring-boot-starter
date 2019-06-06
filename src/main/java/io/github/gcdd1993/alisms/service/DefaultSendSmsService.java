@@ -25,14 +25,14 @@ import java.util.concurrent.CompletableFuture;
  */
 @Slf4j
 @Service
-public class DefaultSendService implements ISendService {
+public class DefaultSendSmsService implements ISendSmsService {
 
     private final IAcsClient acsClient;
 
     private final AliSmsProperties properties;
 
     @Autowired
-    public DefaultSendService(IAcsClient acsClient, AliSmsProperties properties) {
+    public DefaultSendSmsService(IAcsClient acsClient, AliSmsProperties properties) {
         this.acsClient = acsClient;
         this.properties = properties;
     }

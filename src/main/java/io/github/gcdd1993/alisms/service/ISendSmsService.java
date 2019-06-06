@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
  * @author gaochen
  * @date 2019/6/6
  */
-public interface ISendService {
+public interface ISendSmsService {
 
     /**
      * 发送短信（同步）

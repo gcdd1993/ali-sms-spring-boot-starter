@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.UtilityClass;
 
 /**
- * TODO
+ * 封装了阿里短信返回值
  *
  * @author gaochen
  * @date 2019/6/6

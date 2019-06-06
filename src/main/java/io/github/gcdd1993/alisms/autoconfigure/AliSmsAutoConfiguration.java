@@ -9,14 +9,16 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Assert;
 
 /**
- * TODO
+ * ali sms 自动配置
  *
  * @author gaochen
  * @date 2019/6/6
  */
+@Configuration
 @ConditionalOnClass({
         IAcsClient.class,
         CommonRequest.class,

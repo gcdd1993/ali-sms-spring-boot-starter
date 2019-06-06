@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 
 group = 'io.github.gcdd1993'
-version = '0.0.1-SNAPSHOT'
+version gitVersion()
 sourceCompatibility = '1.8'
 
 repositories {
