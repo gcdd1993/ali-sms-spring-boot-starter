@@ -84,7 +84,7 @@ public class DefaultSendSmsService implements ISendSmsService {
 
         } catch (ClientException e) {
             log.error("send msg error.", e);
-            return SmsResponse.SmsResponseBuilder.buildFail("发送短信时请求出错");
+            return SmsResponse.SmsResponseBuilder.buildFail(e.getMessage());
         } catch (JsonProcessingException e) {
             log.error("write json failed.", e);
             return SmsResponse.SmsResponseBuilder.buildFail("短信参数在json序列化时出错");
