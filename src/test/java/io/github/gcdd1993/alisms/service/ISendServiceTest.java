@@ -29,10 +29,12 @@ public class ISendServiceTest {
     public void sendSync() {
         SmsRequest smsRequest = new SmsRequest();
         smsRequest.setPhoneNumbers("17602526128");
-        smsRequest.setSignName("空压机互联云平台");
-        smsRequest.setTemplateId(164376078);
+        smsRequest.setTemplateId(167365532);
         Map<String, String> map = new HashMap<>(1);
-        map.put("code", "123456");
+        map.put("name", "张三");
+        map.put("project", "xx项目");
+        map.put("machine", "xx设备");
+        map.put("rule", "xx报警规则");
         smsRequest.setParams(map);
         sendService.sendSync(smsRequest);
     }
@@ -41,7 +43,6 @@ public class ISendServiceTest {
     public void sendAsync() {
         SmsRequest smsRequest = new SmsRequest();
         smsRequest.setPhoneNumbers("17602526128");
-        smsRequest.setSignName("空压机互联云平台");
         smsRequest.setTemplateId(164376078);
         Map<String, String> map = new HashMap<>(1);
         map.put("code", "123456");

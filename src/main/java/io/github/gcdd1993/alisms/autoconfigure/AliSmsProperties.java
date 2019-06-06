@@ -39,6 +39,14 @@ public class AliSmsProperties {
     private String regionId = "cn-shanghai";
 
     /**
+     * 短信签名名称。请在控制台签名管理页面签名名称一列查看。
+     * <p>
+     * 一般来说，系统只使用一个签名，所以可以放在配置文件中
+     * </p>
+     */
+    private String signName;
+
+    /**
      * AccessKey
      * <a href="https://help.aliyun.com/document_detail/101339.html?spm=a2c4g.11186623.6.604.cc523e2cIaDw2h">帮助文档-AccessKey</a>
      */

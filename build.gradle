@@ -10,6 +10,7 @@ plugins {
     id 'java'
     id "io.freefair.lombok" version "3.6.6"
     id 'maven-publish'
+    id "com.jfrog.bintray" version "1.7.3"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -21,6 +22,7 @@ sourceCompatibility = '1.8'
 repositories {
     mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -39,10 +41,9 @@ dependencies {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifactId = 'ali-sms-spring-boot-starter'
             from components.java
-            artifact sourcesJar
-            artifact javadocJar
+            artifactId 'ali-sms-spring-boot-starter'
+            version '0.0.1-SNAPSHOT'
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
@@ -54,7 +55,7 @@ publishing {
             pom {
                 name = 'ali-sms-spring-boot-starter'
                 description = 'A simple ali sms spring boot starter to make ali sms easier'
-                url = 'http://www.example.com/library'
+                url = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter/'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -63,17 +64,61 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'gcdd'
+                        id = 'gcdd1993'
                         name = 'gaochen'
                         email = 'mobile17602526128@gmail.com'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://example.com/my-library.git'
-                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
-                    url = 'http://example.com/my-library/'
+                    connection = 'scm:git:git@github.com:gcdd1993/ali-sms-spring-boot-starter.git'
+                    developerConnection = 'scm:git:ssh://github.com:gcdd1993/ali-sms-spring-boot-starter.git'
+                    url = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter/'
+                }
+
+                repositories {
+                    maven {
+                        url = "https://github.com/gcdd1993/repo"
+                    }
                 }
             }
         }
     }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
+}
+
+javadoc.failOnError = false
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+bintray {
+    user = "gcdd2019"
+    key = "9750bfa9d501b77b5e55ad1d720aa39dc641d5c9"
+    publications = ['mavenJava']
+
+    pkg {
+        repo = 'ali-sms-spring-boot-starter'
+        name = 'ali-sms-spring-boot-starter'
+        userOrg = 'gcdd1993'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter.git'
+        version {
+            name = '0.1.0'
+            desc = '0.1.0'
+            released  = new Date()
+        }
+    }
+
+}
+
+jar {
+    enabled = true
 }
