@@ -1,0 +1,79 @@
+buildscript {
+    ext {
+        aliSdkVersion = '4.1.0'
+        jacksonVersion = '2.8.11'
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+    id "io.freefair.lombok" version "3.6.6"
+    id 'maven-publish'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'io.github.gcdd1993'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation "com.aliyun:aliyun-java-sdk-core:${aliSdkVersion}"
+
+    compileOnly "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    compileOnly "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+
+    testImplementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    testImplementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// publish maven repo
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'ali-sms-spring-boot-starter'
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'ali-sms-spring-boot-starter'
+                description = 'A simple ali sms spring boot starter to make ali sms easier'
+                url = 'http://www.example.com/library'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'gcdd'
+                        name = 'gaochen'
+                        email = 'mobile17602526128@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://example.com/my-library.git'
+                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
+                    url = 'http://example.com/my-library/'
+                }
+            }
+        }
+    }
+}
