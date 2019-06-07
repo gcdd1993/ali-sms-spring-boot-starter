@@ -16,6 +16,4 @@ cache:
 script:
   - jdk_switcher use openjdk8
   - chmod +x gradlew
-  - ./gradlew assemble
-  - ./gradlew check
-  - ./gradlew build
+  - ./gradlew jar
