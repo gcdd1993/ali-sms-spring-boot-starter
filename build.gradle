@@ -11,13 +11,12 @@ plugins {
     id "io.freefair.lombok" version "3.6.6"
     id 'maven-publish'
     id "com.jfrog.bintray" version "1.7.3"
-    id "com.palantir.git-version" version "0.12.0-rc2"
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 group = 'io.github.gcdd1993'
-version gitVersion()
+version = '1.0.0.RELEASE'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -44,7 +43,7 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
             artifactId 'ali-sms-spring-boot-starter'
-            version gitVersion()
+            version project.version
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
