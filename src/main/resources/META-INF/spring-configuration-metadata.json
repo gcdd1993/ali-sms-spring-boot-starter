@@ -1,0 +1,55 @@
+{
+  "groups": [
+    {
+      "name": "aliSms",
+      "type": "io.github.gcdd1993.alisms.autoconfigure.AliSmsProperties",
+      "sourceType": "io.github.gcdd1993.alisms.autoconfigure.AliSmsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ali.sms.domain",
+      "type": "java.lang.String",
+      "description": "ali sms 服务地址.",
+      "defaultValue": "dysmsapi.aliyuncs.com"
+    },
+    {
+      "name": "ali.sms.version",
+      "type": "java.lang.String",
+      "description": "ali sms 版本号.",
+      "defaultValue": "2017-05-25"
+    },
+    {
+      "name": "ali.sms.action",
+      "type": "java.lang.String",
+      "description": "ali sms 发送短信动作名称.",
+      "defaultValue": "SendSms"
+    },
+    {
+      "name": "ali.sms.region-id",
+      "type": "java.lang.String",
+      "description": "ali sms 地域.",
+      "defaultValue": "cn-shanghai"
+    },
+    {
+      "name": "ali.sms.sign-name",
+      "type": "java.lang.String",
+      "description": "短信签名名称。请在控制台签名管理页面签名名称一列查看."
+    },
+    {
+      "name": "ali.sms.access-key",
+      "type": "io.github.gcdd1993.alisms.autoconfigure.AliSmsProperties$AccessKey",
+      "description": "AccessKey."
+    },
+    {
+      "name": "ali.sms.access-key.id",
+      "type": "java.lang.String",
+      "description": "AccessKeyId用于标识用户."
+    },
+    {
+      "name": "ali.sms.access-key.secret",
+      "type": "java.lang.String",
+      "description": "AccessKeySecret是用来验证用户的密钥."
+    }
+  ]
+}
