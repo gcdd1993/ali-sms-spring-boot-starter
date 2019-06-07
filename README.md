@@ -31,6 +31,8 @@
 compile 'io.github.gcdd1993:ali-sms-spring-boot-starter:1.0.0.RELEASE'
 ```
 
+👉注意：需要引入`Jcenter`仓库
+
 ## 参数配置
 
 以`application.yml`举例
