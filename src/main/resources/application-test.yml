@@ -1,7 +1,0 @@
-ali:
-  sms:
-    access-key:
-      id: "LTAIPOOIvdbXwHq6"
-      secret: "94TIDqBC5Ae7fT2Fr6I84lghYzRL3h"
-    region-id: "cn-hangzhou"
-    sign-name: "空压机互联云平台"
