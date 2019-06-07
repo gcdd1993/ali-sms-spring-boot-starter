@@ -101,8 +101,8 @@ artifacts {
 }
 
 bintray {
-    user = "gcdd2019"
-    key = "9750bfa9d501b77b5e55ad1d720aa39dc641d5c9"
+    user = System.getProperty("bintray_user")
+    key = System.getProperty("bintray_key")
     publications = ['mavenJava']
 
     pkg {
@@ -114,7 +114,7 @@ bintray {
         version {
             name = project.version
             desc = project.version
-            released  = new Date()
+            released = new Date()
         }
     }
 
