@@ -13,10 +13,9 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-before_script:
+script:
+  - jdk_switcher use openjdk8
   - chmod +x gradlew
   - ./gradlew assemble
   - ./gradlew check
-script:
-  - jdk_switcher use openjdk8
   - ./gradlew build
