@@ -101,8 +101,8 @@ artifacts {
 }
 
 bintray {
-    user = System.getProperty("bintray_user")
-    key = System.getProperty("bintray_key")
+    user = ${bintray_user}
+    key = ${bintray_key}
     publications = ['mavenJava']
 
     pkg {
