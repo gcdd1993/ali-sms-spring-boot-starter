@@ -174,7 +174,7 @@ public void sendSync4() {
 
 ### 异步发送短信
 
-> 考虑到发短信的需求，一般来说都需要异步加持，对以上5中方法分别提供了`sendAsync`，使用方法一致。
+> 考虑到发短信的需求，一般来说都需要异步加持，对以上5种方法分别提供了异步接口`sendAsync`，使用方法基本一致，唯一不同的是，你可以异步处理短信发送返回值。
 
 ```java
 CompletableFuture<SmsResponse> smsResponse = sendService.sendAsync(TEMPLATE_ID, PHONE_NUMBER, MAP);
