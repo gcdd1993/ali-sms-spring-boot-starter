@@ -1,6 +1,8 @@
 language: java
 sudo: required
 dist: xenial
+jdk:
+  - openjdk8
 branches:
   only:
     - master
@@ -12,7 +14,9 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 before_script:
-  - gradle assemble
-  - gradle check
+  - chmod +x gradlew
+  - ./gradlew assemble
+  - ./gradlew check
 script:
-  - gradle build
+  - jdk_switcher use openjdk8
+  - ./gradlew build
