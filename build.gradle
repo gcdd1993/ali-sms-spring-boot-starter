@@ -48,9 +48,11 @@ dependencies {
 
 publish {
     userOrg = 'gcdd1993'
+    repoName = 'ali-sms-spring-boot-starter'
     groupId = 'io.github.gcdd1993'
     artifactId = 'ali-sms-spring-boot-starter'
     publishVersion = '1.0.0.RELEASE'
+    uploadName = 'ali-sms-spring-boot-starter'
     desc = 'A simple ali sms spring boot starter to make ali sms easier'
     website = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter'
     bintrayUser = System.getenv("bintray_user")
