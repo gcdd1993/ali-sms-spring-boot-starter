@@ -18,4 +18,4 @@ before_install:
 install:
   - ./gradlew jar
 script:
-  - ./gradlew bintrayUpload
+  - ./gradlew bintrayUpload -PbintrayUser=${bintray_user} -PbintrayKey=${bintray_key} -PdryRun=false
