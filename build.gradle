@@ -48,7 +48,6 @@ dependencies {
 
 publish {
     userOrg = 'gcdd1993'
-    repoName = 'ali-sms-spring-boot-starter'
     groupId = 'io.github.gcdd1993'
     artifactId = 'ali-sms-spring-boot-starter'
     publishVersion = '1.0.0.RELEASE'
