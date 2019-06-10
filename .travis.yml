@@ -18,4 +18,4 @@ before_install:
 install:
   - ./gradlew jar
 script:
-  - ./gradlew bintrayUpload
+  - ./gradlew clean build bintrayUpload

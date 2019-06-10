@@ -14,7 +14,7 @@ import java.io.IOException;
  * 封装了阿里短信返回值
  *
  * @author gaochen
- * @date 2019/6/6
+ * Created on 2019/6/6.
  */
 @Data
 @RequiredArgsConstructor
@@ -30,7 +30,7 @@ public class SmsResponse {
     private final String message;
 
     /**
-     * 阿里云短信返回值
+     * @return 阿里云短信返回值
      */
     private final CommonResponse commonResponse;
 

@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * ali sms 属性装配定义
  *
  * @author gaochen
- * @date 2019/6/6
+ * Created on 2019/6/6.
  */
 @Data
 @ConfigurationProperties(prefix = "ali.sms")
@@ -18,31 +18,32 @@ public class AliSmsProperties {
     private AccessKey accessKey;
 
     /**
-     * ali sms 服务地址
-     * <a href="https://help.aliyun.com/document_detail/101511.html?spm=a2c4g.11186623.6.605.6bd17ce8eBGc3Y">帮助文档-服务地址</a>
+     * @param domain ali sms 服务地址
+     * @return ali sms 服务地址 <a href="https://help.aliyun.com/document_detail/101511.html?spm=a2c4g.11186623.6.605.6bd17ce8eBGc3Y">帮助文档-服务地址</a>
      */
     private String domain = "dysmsapi.aliyuncs.com";
 
     /**
-     * ali sms 版本号
+     * @param version ali sms 版本号
+     * @return ali sms 版本号
      */
     private String version = "2017-05-25";
 
     /**
-     * ali sms 发送短信
+     * @param action ali sms 发送短信
+     * @return ali sms 发送短信
      */
     private String action = "SendSms";
 
     /**
-     * ali sms 地域
+     * @param regionId ali sms 地域
+     * @return ali sms 地域
      */
     private String regionId = "cn-shanghai";
 
     /**
-     * 短信签名名称。请在控制台签名管理页面签名名称一列查看。
-     * <p>
-     * 一般来说，系统只使用一个签名，所以可以放在配置文件中
-     * </p>
+     * @param signName 短信签名名称。一般来说，系统只使用一个签名，所以可以放在配置文件中
+     * @return 短信签名名称。请在控制台签名管理页面签名名称一列查看。
      */
     private String signName;
 
@@ -56,18 +57,14 @@ public class AliSmsProperties {
     public static class AccessKey {
 
         /**
-         * access key id
-         * <p>
-         * AccessKeyId用于标识用户。
-         * </p>
+         * @param id AccessKeyId用于标识用户。
+         * @return AccessKeyId用于标识用户。
          */
         private String id;
 
         /**
-         * access key secret
-         * <p>
-         * AccessKeySecret是用来验证用户的密钥。AccessKeySecret必须保密。
-         * </p>
+         * @param secret AccessKeySecret是用来验证用户的密钥。AccessKeySecret必须保密。
+         * @return AccessKeySecret是用来验证用户的密钥。AccessKeySecret必须保密。
          */
         private String secret;
     }
