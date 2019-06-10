@@ -18,7 +18,7 @@ import org.springframework.util.Assert;
  * ali sms 自动配置
  *
  * @author gaochen
- * @date 2019/6/6
+ * Created on 2019/6/6.
  */
 @Configuration
 @ConditionalOnClass({

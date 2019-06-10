@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
  * 默认的短信发送实现
  *
  * @author gaochen
- * @date 2019/6/6
+ * Created on 2019/6/6.
  */
 @Slf4j
 public class DefaultSendSmsService implements ISendSmsService {

@@ -3,21 +3,30 @@ buildscript {
         aliSdkVersion = '4.1.0'
         jacksonVersion = '2.8.11'
     }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9.1'
+    }
 }
 
 plugins {
     id 'org.springframework.boot' version '2.1.5.RELEASE'
     id 'java'
     id "io.freefair.lombok" version "3.6.6"
-    id 'maven-publish'
-    id "com.jfrog.bintray" version "1.8.1"
 }
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.novoda.bintray-release'
 
 group = 'io.github.gcdd1993'
 version = '1.0.0.RELEASE'
 sourceCompatibility = '1.8'
+
+javadoc {
+    options.addStringOption('encoding', 'UTF-8')
+}
 
 repositories {
     mavenLocal()
@@ -37,88 +46,21 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-// publish maven repo
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            artifactId 'ali-sms-spring-boot-starter'
-            version project.version
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
-            }
-            pom {
-                name = 'ali-sms-spring-boot-starter'
-                description = 'A simple ali sms spring boot starter to make ali sms easier'
-                url = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter/'
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'gcdd1993'
-                        name = 'gaochen'
-                        email = 'mobile17602526128@gmail.com'
-                    }
-                }
-                scm {
-                    connection = 'scm:git:git@github.com:gcdd1993/ali-sms-spring-boot-starter.git'
-                    developerConnection = 'scm:git:ssh://github.com:gcdd1993/ali-sms-spring-boot-starter.git'
-                    url = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter/'
-                }
-
-                repositories {
-                    maven {
-                        url = "https://github.com/gcdd1993/repo"
-                    }
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    from sourceSets.main.allSource
-}
-
-javadoc.failOnError = false
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-bintray {
-    user = System.getenv("bintray_user")
-    key = System.getenv("bintray_key")
-    publications = ['mavenJava']
-
-    pkg {
-        repo = 'ali-sms-spring-boot-starter'
-        name = 'ali-sms-spring-boot-starter'
-        userOrg = 'gcdd1993'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter.git'
-        version {
-            name = project.version
-            desc = project.version
-            released = new Date()
-        }
-    }
-
+publish {
+    userOrg = 'gcdd1993'
+    groupId = 'io.github.gcdd1993'
+    artifactId = 'ali-sms-spring-boot-starter'
+    publishVersion = '1.0.0.RELEASE'
+    desc = 'A simple ali sms spring boot starter to make ali sms easier'
+    website = 'https://github.com/gcdd1993/ali-sms-spring-boot-starter'
+    bintrayUser = System.getenv("bintray_user")
+    bintrayKey = System.getenv("bintray_key")
 }
 
 jar {
     enabled = true
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }

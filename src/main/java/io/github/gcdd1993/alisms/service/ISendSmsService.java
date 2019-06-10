@@ -10,7 +10,7 @@ import java.util.concurrent.CompletableFuture;
  * 阿里云短信发送接口
  *
  * @author gaochen
- * @date 2019/6/6
+ * Created on 2019/6/6.
  */
 public interface ISendSmsService {
 
@@ -20,7 +20,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param params       {@link SmsRequest#getParams()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     SmsResponse sendSync(Integer templateId, String phoneNumbers, Map<String, String> params);
 
@@ -30,7 +31,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param paramStr     {@link SmsRequest#getParamStr()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     SmsResponse sendSync(Integer templateId, String phoneNumbers, String paramStr);
 
@@ -41,7 +43,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param params       {@link SmsRequest#getParams()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     SmsResponse sendSync(String signName, Integer templateId, String phoneNumbers, Map<String, String> params);
 
@@ -52,7 +55,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param paramStr     {@link SmsRequest#getParamStr()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     SmsResponse sendSync(String signName, Integer templateId, String phoneNumbers, String paramStr);
 
@@ -60,7 +64,8 @@ public interface ISendSmsService {
      * 发送短信（同步）
      *
      * @param request 阿里云短信请求体
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     SmsResponse sendSync(SmsRequest request);
 
@@ -70,7 +75,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param params       {@link SmsRequest#getParams()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     CompletableFuture<SmsResponse> sendAsync(Integer templateId, String phoneNumbers, Map<String, String> params);
 
@@ -80,7 +86,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param paramStr     {@link SmsRequest#getParamStr()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     CompletableFuture<SmsResponse> sendAsync(Integer templateId, String phoneNumbers, String paramStr);
 
@@ -91,7 +98,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param params       {@link SmsRequest#getParams()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     CompletableFuture<SmsResponse> sendAsync(String signName, Integer templateId, String phoneNumbers, Map<String, String> params);
 
@@ -102,7 +110,8 @@ public interface ISendSmsService {
      * @param templateId   {@link SmsRequest#getTemplateId()}
      * @param phoneNumbers {@link SmsRequest#getPhoneNumbers()}
      * @param paramStr     {@link SmsRequest#getParamStr()}
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     CompletableFuture<SmsResponse> sendAsync(String signName, Integer templateId, String phoneNumbers, String paramStr);
 
@@ -110,7 +119,8 @@ public interface ISendSmsService {
      * 发送短信（异步）
      *
      * @param request 阿里云短信请求体
-     * @return {@link SmsResponse}
+     * @return 阿里云短信返回值
+     * @see SmsResponse
      */
     CompletableFuture<SmsResponse> sendAsync(SmsRequest request);
 
